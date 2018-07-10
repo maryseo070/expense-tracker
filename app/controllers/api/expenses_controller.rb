@@ -5,7 +5,7 @@ class Api::ExpensesController < ApplicationController
 
   def show
     @expense = Expense.find(params[:id])
-    # @category = @expense.category.name? ???
+    @category = @expense.category.name
   end
 
   def create

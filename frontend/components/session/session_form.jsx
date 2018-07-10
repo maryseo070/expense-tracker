@@ -13,7 +13,8 @@ class SessionForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user).then( console.log("signed up!"));
+    this.props.processForm(user).then( () => console.log("signed up!"));
+    // u => this.props.history.push('/whatever')
   }
 
   updateField(field){
