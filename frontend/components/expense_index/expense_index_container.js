@@ -6,7 +6,7 @@ import ExpenseIndex from './expense_index';
 
 const msp = state => {
   return {
-    expenses: state.expenses
+    expenses: state.expenses.expenses
   };
 };
 

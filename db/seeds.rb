@@ -40,9 +40,30 @@ misc = Category.create(
   name: "Misc"
 )
 
-rent = Expense.create(
-  amount: 1500,
-  description: "July 2018 Rent",
+Expense.create(
+  amount: 1495.90,
+  description: "June 2018 Rent",
   date: DateTime.new(2018, 07, 10),
   category_id: rent.id
+)
+
+Expense.create(
+  amount: 150.72,
+  description: "June 2018 Utilities",
+  date: DateTime.new(2018, 07, 08),
+  category_id: utilities.id
+)
+
+Expense.create(
+  amount: 60.05,
+  description: "May 2018 Fuel",
+  date: DateTime.new(2018, 06, 01),
+  category_id: fuel.id
+)
+
+Expense.create(
+  amount: 14.25,
+  description: "Star Wars",
+  date: DateTime.new(2018, 02, 01),
+  category_id: entertainment.id
 )
