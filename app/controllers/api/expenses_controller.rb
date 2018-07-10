@@ -22,7 +22,7 @@ class Api::ExpensesController < ApplicationController
   def expense_params
     params
     .require(:expense)
-    .permit(:amount, :description. :date. :category)
+    .permit(:amount, :description, :date, :category)
   end
 
 end
