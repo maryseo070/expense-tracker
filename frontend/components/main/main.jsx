@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ExpenseIndex from './expense_index';
 import AddExpenseButton from './add_expense_button';
 import { selectExpenses } from '../../reducers/selectors.js';
+import ExpensesPieChart from './pie_chart';
 
 class Main extends Component {
   constructor(props){
@@ -42,6 +43,7 @@ class Main extends Component {
         </select>
         <ExpenseIndex
           expenses={filteredExpenses}/>
+        <ExpensesPieChart />
       </section>
     );
   }
