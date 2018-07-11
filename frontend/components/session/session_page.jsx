@@ -39,7 +39,7 @@ class SessionPage extends Component {
         <div className="session-photo-container">
           <img className="session-photo"
             src={window.session_photo}/>
-          <h1 className="session-welcome">Welcome to Pig</h1>
+          <h1 className="session-welcome">Welcome to Expense Tracker</h1>
         </div>
           <section className="icon-holder">
             <div className="icon-box">
