@@ -44,7 +44,9 @@ gifts = Category.create(
 misc = Category.create(
   name: "Misc"
 )
-
+investments = Category.create(
+  name: "Investments"
+)
 Expense.create(
   amount: 1495.90,
   description: "June 2018 Rent",

@@ -1,13 +1,8 @@
 import React from 'react';
 import PieChart from 'react-simple-pie-chart';
 
-
 const ExpensesPieChart = ({ expenses, categories }) => {
 
-  // let totalExpenses = 0;
-  // Object.values(expenses).map( e => {
-  //   totalExpenses += e.amount;
-  // });
   let categoryExpenses = {};
   Object.values(expenses).map( e => {
     if (categoryExpenses[e.category]) {
@@ -18,36 +13,54 @@ const ExpensesPieChart = ({ expenses, categories }) => {
     }
   });
 
-  let slice = [];
-  if (Object.values(categoryExpenses) > 0) {
-    slice = Object.values(categoryExpenses).map( item => {
-      let randomColor = Math.floor(Math.random()*16777215).toString(16);
-      return {
-        color: randomColor,
-        value: item
-      };
-    });
+  function generateColor() {
+    return 'rgb(' + (Math.floor(Math.random() * 256)) + ',' +
+    (Math.floor(Math.random() * 256)) + ',' +
+    (Math.floor(Math.random() * 256)) + ')';
   }
 
+  function colorArr() {
+    let colors = [];
+    for (let i = 0; i < 12; i++) {
+      colors = colors.concat(generateColor());
+    }
+    return colors;
+  }
+
+  let slice = [];
+  let cols = colorArr();
+
+  let vals = Object.values(categoryExpenses);
+    if (vals.length > 0) {
+      vals.map( (item, i) => (
+        slice = slice.concat([{
+          color: cols[i],
+          value: item
+        }])
+      ));
+    }
+
+  function colorLegend() {
+    let cats = Object.values(categories);
+    if (cats.length > 0) {
+      let colores;
+      return cats.map( (cat, i) => {
+        return (
+          <div key={i} style={{color: `${cols[i]}`}}>{cat.name}</div>
+        );
+      });
+    }
+  }
   return (
-    <div>hi</div>
-    // <PieChart
-    //   className="pie-chart"
-    //   slices={[
-    //     {slice}
-    //   ]}
-    // />
-);
+    <div>
+      <div>{colorLegend()}</div>
+      <PieChart
+        className="pie-chart"
+        slices={slice}
+        />
+    </div>
+  );
 };
 
-// slices={[
-//   {
-//     color: "green",
-//     value: 10,
-//   },
-//   {
-//     color: "steelblue",
-//     value: 20,
-//   },
-// ]}
+
 export default ExpensesPieChart;

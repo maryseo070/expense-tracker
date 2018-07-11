@@ -67,13 +67,15 @@ class Main extends Component {
             </select>
           </div>
         </div>
+        <div className="index-piechart">
+          <ExpenseIndex
+            expenses={filteredExpenses}
+            currentUser={this.props.currentUser}/>
+          <ExpensesPieChart
+            expenses={this.props.expenses}
+            categories={this.props.categories}/>
+        </div>
 
-        <ExpenseIndex
-          expenses={filteredExpenses}
-          currentUser={this.props.currentUser}/>
-        <ExpensesPieChart
-          expenses={this.props.expenses}
-          categories={this.props.categories}/>
       </section>
     );
   }

@@ -15,9 +15,9 @@ class ExpenseIndex extends Component {
     exes = exes.map( (ex, i) => {
       return (
         <ul className="expense-item" key={i}>
-          <li className="expense-category">Category: {ex.category}</li>
-          <li>Date: {ex.date}</li>
-          <li>Description: {ex.description}</li>
+          <li className="expense-date">Date: {ex.date}</li>
+          <div className="expense-category">Category: {ex.category}</div>
+          <li className="expense-description">Description: {ex.description}</li>
           <li className="expense-amount">Amount: ${ex.amount.toFixed(2)}</li>
         </ul>
       );
@@ -25,7 +25,6 @@ class ExpenseIndex extends Component {
 
     return (
       <div>
-        <div>expense index</div>
         <div>{exes}</div>
       </div>
     );

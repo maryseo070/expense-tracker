@@ -90,11 +90,20 @@ select {
 }
 .expense-item{
   margin-top: 10px;
+  background-color: #f0f5f5
 }
 .expense-amount{
   color: red;
 }
 .expense-category{
-  color: black;
   font-weight: bold;
+}
+
+.expense-date{
+  background-color: #c2d6d6
+}
+.index-piechart{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
