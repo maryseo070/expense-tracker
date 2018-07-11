@@ -7,10 +7,6 @@ class ExpenseIndex extends Component {
     this.logout = this.logout.bind(this);
   }
 
-  componentDidMount() {
-    this.props.fetchExpenses();
-  }
-
   logout() {
     return (e) => {
       this.props.logout().then( () => console.log("loggedout"));
@@ -39,8 +35,7 @@ class ExpenseIndex extends Component {
   }
 }
 ExpenseIndex.propTypes = {
-  expenses: PropTypes.object,
-  fetchExpenses: PropTypes.func
+  expenses: PropTypes.object
 };
 
 ExpenseIndex.defaultProps = {

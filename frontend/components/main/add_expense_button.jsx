@@ -56,7 +56,6 @@ class AddExpenseButton extends Component {
   }
 
   handleSubmit() {
-    debugger
     this.props.createExpense(this.state.form);
   }
 
