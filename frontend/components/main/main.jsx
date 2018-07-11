@@ -18,15 +18,6 @@ class Main extends Component {
     this.props.fetchExpenses();
     this.props.fetchCategories();
   }
-  // componentDidUpdate(prevProps, prevState, snapshot) {
-  //   debugger
-  // }
-  // componentWillReceiveProps(nextProps){
-  //   debugger
-  //   // if (this.props.expenses !== nextProps.expenses) {
-  //   //   this.props.fetchExpenses();
-  //   // }
-  // }
 
   handleFilter() {
     return (e) => {
