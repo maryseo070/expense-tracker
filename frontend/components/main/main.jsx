@@ -32,6 +32,7 @@ class Main extends Component {
   render() {
     let filteredExpenses =
       selectExpenses(this.props.expenses, this.state.filter);
+      
     let categories = this.props.categories;
     return(
       <section className="expense-index">

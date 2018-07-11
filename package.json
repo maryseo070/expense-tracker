@@ -28,10 +28,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --mode development --watch  ./frontend/entry.jsx --output ./app/assets/javascripts/wpk.js",
-    "dev": "webpack --mode development ./frontend/entry.jsx --output ./app/assets/javascripts/wpk.js",
-    "build": "webpack --mode production ./frontend/entry.jsx --output ./app/assets/javascripts/wpk.js"
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
@@ -46,5 +43,9 @@
   "homepage": "https://github.com/maryseo070/expense-tracker#readme",
   "devDependencies": {
     "webpack-cli": "^3.0.8"
+  },
+  "engines": {
+    "node": "8.4.0",
+    "npm": "6.1.0"
   }
 }
