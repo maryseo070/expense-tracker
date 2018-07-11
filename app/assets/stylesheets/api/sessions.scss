@@ -1,3 +1,68 @@
 // Place all the styles related to the api/sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.session-page {
+  display: flex;
+  flex-direction: column;
+}
+.session-photo {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+  width: 80%;
+  border-radius: 4px;
+}
+.icon-holder{
+  margin-top: 40px;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.session-icon{
+  height: 250px;
+  width: 250px;
+}
+.session-photo-container{
+  position: relative;
+  text-align: center;
+}
+.session-welcome{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 70px;
+  padding: 30px;
+  overflow: none;
+}
+
+.icon-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.session-form-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.input-text{
+  height: 30px;
+  width: 150px;
+  border-radius: 4px;
+  border: 1px solid grey;
+  margin-right: 7px;
+}
+
+.session-button{
+  padding: 10px;
+  border-radius: 4px;
+  
+}

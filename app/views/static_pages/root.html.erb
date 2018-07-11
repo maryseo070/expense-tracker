@@ -6,6 +6,11 @@ window.currentUser = <%= render(
   user: current_user
 ).html_safe %>
 <% end %>
+
+window.session_photo = "<%= asset_path("session.jpg") %>"
+window.icon1 = "<%= asset_path("icon-1.png") %>"
+window.icon2 = "<%= asset_path("icon-2.png") %>"
+window.icon3 = "<%= asset_path("icon-3.jpeg") %>"
 </script>
 
 <div id="root"></div>

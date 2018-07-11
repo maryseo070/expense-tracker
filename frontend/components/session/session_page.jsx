@@ -25,13 +25,33 @@ class SessionPage extends Component {
   render() {
     return (
       <div className="session-page">
-          {this.renderErrors()}
+        <section className="session-form-container">
           Log In!
           <SessionFormContainer />
-          <br>
-          </br>
-          Don't have an account? Sign Up!
+          or Sign Up (password must be 6 characters long)
           <SignUpFormContainer />
+          {this.renderErrors()}
+        </section>
+        <div className="session-photo-container">
+          <img className="session-photo"
+            src={window.session_photo}/>
+          <h1 className="session-welcome">Welcome to Pig</h1>
+        </div>
+          <section className="icon-holder">
+            <div className="icon-box">
+              <img src={window.icon1} className="session-icon"/>
+              <div className="icon-text">Track Your Expenses</div>
+            </div>
+            <div className="icon-box">
+              <img src={window.icon2} className="session-icon"/>
+              <div className="icon-text">Filter Expenses via Category</div>
+            </div>
+            <div className="icon-box">
+              <img src={window.icon3} className="session-icon"/>
+              <div className="icon-text">Visualize Your Spending Distribution</div>
+            </div>
+          </section>
+
       </div>
     );
   }

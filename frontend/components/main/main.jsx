@@ -42,8 +42,11 @@ class Main extends Component {
           }
         </select>
         <ExpenseIndex
-          expenses={filteredExpenses}/>
-        <ExpensesPieChart />
+          expenses={filteredExpenses}
+          logout={this.props.logout}/>
+        <ExpensesPieChart
+          expenses={this.props.expenses}
+          categories={this.props.categories}/>
       </section>
     );
   }
