@@ -1,3 +1,100 @@
 // Place all the styles related to the api/expenses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.index-h1 {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.expense-index{
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.button-container{
+  padding: 10px 0 10px 0;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e0ebeb;
+}
+.add-expense-button {
+  padding: 10px 30px 10px 30px;
+  border-radius: 4px;
+  margin: 0 10px 10px 0;
+  background-color: #ebccff;
+  border: none;
+  cursor: pointer;
+}
+.logout-button{
+  padding: 10px 30px 10px 30px;
+  border-radius: 4px;
+  margin: 0 10px 10px 0;
+  background-color: #ffcccc;
+  border: none;
+  cursor: pointer;
+}
+select {
+  height: 30px;
+  width: 150px;
+  border: 1px solid transparent;
+  background-color: #e6ffe6;
+  cursor: pointer;
+}
+.modal-inner-session-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.modal-text{
+  height: 30px;
+  width: 150px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  background-color: #d8f3d8;
+  margin: 10px;
+
+}
+.modal-date{
+  height: 30px;
+  width: 150px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  background-color: #d8f3d8;
+  margin: 10px;
+  cursor: pointer;
+}
+.modal-dropdown{
+  margin: 10px;
+}
+
+.modal-submit-button{
+  padding: 10px 30px 10px 30px;
+  border-radius: 4px;
+  margin: 0 10px 10px 0;
+  background-color: #f2ccff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+.close-button{
+  padding: 10px 30px 10px 30px;
+  border-radius: 4px;
+  margin: auto;
+  background-color: #ffcccc;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+.expense-item{
+  margin-top: 10px;
+}
+.expense-amount{
+  color: red;
+}
+.expense-category{
+  color: black;
+  font-weight: bold;
+}

@@ -8,6 +8,11 @@
 Category.destroy_all
 Expense.destroy_all
 
+user1 = User.create(
+  username: "tester",
+  password: "starwars"
+)
+
 food = Category.create(
   name: "Food"
 )
@@ -44,26 +49,30 @@ Expense.create(
   amount: 1495.90,
   description: "June 2018 Rent",
   date: DateTime.new(2018, 07, 10),
-  category_id: rent.id
+  category_id: rent.id,
+  user_id: user1.id
 )
 
 Expense.create(
   amount: 150.72,
   description: "June 2018 Utilities",
-  date: DateTime.new(2018, 07, 08),
-  category_id: utilities.id
+  date: DateTime.new(2018, 07, 05),
+  category_id: utilities.id,
+  user_id: user1.id
 )
 
 Expense.create(
   amount: 60.05,
   description: "May 2018 Fuel",
   date: DateTime.new(2018, 06, 01),
-  category_id: fuel.id
+  category_id: fuel.id,
+  user_id: user1.id
 )
 
 Expense.create(
   amount: 14.25,
   description: "Star Wars",
   date: DateTime.new(2018, 02, 01),
-  category_id: entertainment.id
+  category_id: entertainment.id,
+  user_id: user1.id
 )

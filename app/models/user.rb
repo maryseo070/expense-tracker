@@ -3,6 +3,10 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :username, uniqueness: true
 
+  has_many :expenses,
+    foreign_key: :user_id,
+    class_name: "Expense"
+
   attr_reader :password
   after_initialize :ensure_session_token
 

@@ -12,14 +12,30 @@ class Main extends Component {
       filter: 0
     };
     this.handleFilter = this.handleFilter.bind(this);
+    this.logout = this.logout.bind(this);
   }
   componentDidMount() {
     this.props.fetchExpenses();
     this.props.fetchCategories();
   }
+  // componentDidUpdate(prevProps, prevState, snapshot) {
+  //   debugger
+  // }
+  // componentWillReceiveProps(nextProps){
+  //   debugger
+  //   // if (this.props.expenses !== nextProps.expenses) {
+  //   //   this.props.fetchExpenses();
+  //   // }
+  // }
+
   handleFilter() {
     return (e) => {
       this.setState({filter: e.target.value});
+    };
+  }
+  logout() {
+    return (e) => {
+      this.props.logout().then( () => console.log("loggedout"));
     };
   }
   render() {
@@ -27,23 +43,34 @@ class Main extends Component {
       selectExpenses(this.props.expenses, this.state.filter);
     let categories = this.props.categories;
     return(
-      <section>
-        <AddExpenseButton
-          categories={this.props.categories}
-          createExpense={this.props.createExpense}/>
-        <select onChange={this.handleFilter()}>
-          <option value="0">All</option>
-          {
-            Object.values(this.props.categories).map( (c, i) => {
-              return(
-                <option key={i} value={c.id}>{c.name}</option>
-              );
-            })
-          }
-        </select>
+      <section className="expense-index">
+        <h1 className="index-h1">Expense Tracker</h1>
+        <button className="logout-button" onClick={this.logout()}>Log Out</button>
+
+        <div className="button-container">
+          <AddExpenseButton
+            categories={this.props.categories}
+            createExpense={this.props.createExpense}
+            currentUser={this.props.currentUser}
+            expenses={this.props.expenses}/>
+
+          <div>Filter Expenses by Category:
+            <select className="expense-dropdown" onChange={this.handleFilter()}>
+              <option value="0">All</option>
+              {
+                Object.values(this.props.categories).map( (c, i) => {
+                  return(
+                    <option key={i} value={c.id}>{c.name}</option>
+                  );
+                })
+              }
+            </select>
+          </div>
+        </div>
+
         <ExpenseIndex
           expenses={filteredExpenses}
-          logout={this.props.logout}/>
+          currentUser={this.props.currentUser}/>
         <ExpensesPieChart
           expenses={this.props.expenses}
           categories={this.props.categories}/>

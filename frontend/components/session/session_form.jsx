@@ -10,11 +10,13 @@ class SessionForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.processForm(user).then( () => this.props.history.push('/expenses'));
-    // u => this.props.history.push('/whatever')
+  handleSubmit() {
+    return(e) => {
+      e.preventDefault();
+      const user = Object.assign({}, this.state);
+      this.props.processForm(user).then(
+        (u) => this.props.history.push('/expenses'));
+    };
   }
 
   updateField(field){
@@ -24,9 +26,10 @@ class SessionForm extends Component {
   }
 
   render () {
+    // debugger
     return (
       <div>
-        <form className="session-form" onSubmit={this.handleSubmit}>
+        <form className="session-form" onSubmit={this.handleSubmit()}>
           <input
             className="input-text"
             type="text"

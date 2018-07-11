@@ -37,7 +37,8 @@ class AddExpenseButton extends Component {
         amount: "",
         description: "",
         date: "",
-        category_id: ""
+        user_id: this.props.currentUser.id,
+        category_id: this.props.categories.first === undefined ? 1 : this.props.categories.first.id
       }
     };
     this.openModal = this.openModal.bind(this);
@@ -56,7 +57,8 @@ class AddExpenseButton extends Component {
   }
 
   handleSubmit() {
-    this.props.createExpense(this.state.form);
+    this.props.createExpense(this.state.form).then(
+      () => this.closeModal());
   }
 
   updateCategory() {
@@ -103,31 +105,34 @@ class AddExpenseButton extends Component {
           className="login-modal-all"
         >
 
-        <button className="modal-close-button" onClick={this.closeModal}>Close</button>
-
            <form onSubmit={this.handleSubmit} className="modal-inner-session-form">
              <input
+               className="modal-text"
                type="text"
                placeholder="Amount $"
                value={this.state.amount}
                onChange={this.updateField("amount")}/>
              <input
+               className="modal-text"
                type="textarea"
                placeholder="Description"
                value={this.state.description}
                onChange={this.updateField("description")}
                />
              <input
+               className="modal-date"
                type="date"
                value={this.state.description}
                onChange={this.updateField("date")}/>
              <select
+               className="modal-dropdown"
                onChange={this.updateCategory()}>
                {categories}
              </select>
 
-           <input type="submit" />
+           <input className="modal-submit-button" type="submit" />
            </form>
+           <button className="close-button" onClick={this.closeModal}>Close</button>
 
         </Modal>
       </div>

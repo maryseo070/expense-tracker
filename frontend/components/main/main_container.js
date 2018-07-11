@@ -9,7 +9,8 @@ import { logout } from '../../actions/session_actions';
 const msp = state => {
   return {
     expenses: state.expenses.expenses,
-    categories: state.expenses.categories
+    categories: state.expenses.categories,
+    currentUser: state.session.currentUser
   };
 };
 

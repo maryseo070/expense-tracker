@@ -26,10 +26,14 @@ class SessionPage extends Component {
     return (
       <div className="session-page">
         <section className="session-form-container">
-          Log In!
-          <SessionFormContainer />
-          or Sign Up (password must be 6 characters long)
-          <SignUpFormContainer />
+          <div className="session-item">
+            Log In!
+            <SessionFormContainer />
+          </div>
+          <div className="session-item">
+            Sign Up (password must be 6 characters long)
+            <SignUpFormContainer />
+          </div>
           {this.renderErrors()}
         </section>
         <div className="session-photo-container">

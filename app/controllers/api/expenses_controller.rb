@@ -1,6 +1,6 @@
 class Api::ExpensesController < ApplicationController
   def index
-    @expenses = Expense.all
+    @expenses = Expense.where(["user_id = :id", {id: current_user.id}])
   end
 
   def show
@@ -22,7 +22,7 @@ class Api::ExpensesController < ApplicationController
   def expense_params
     params
     .require(:expense)
-    .permit(:amount, :description, :date, :category_id)
+    .permit(:amount, :description, :date, :category_id, :user_id)
   end
 
 end

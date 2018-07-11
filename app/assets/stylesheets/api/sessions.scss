@@ -47,9 +47,12 @@
   align-items: center;
 }
 .session-form-container{
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 10px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   font-size: 18px;
 }
 
@@ -57,12 +60,16 @@
   height: 30px;
   width: 150px;
   border-radius: 4px;
-  border: 1px solid grey;
+  border: 1px solid transparent;
+  background-color: #d8f3d8;
   margin-right: 7px;
 }
 
 .session-button{
-  padding: 10px;
+  padding: 10px 30px 10px 30px;
   border-radius: 4px;
-  
+  margin: 0 10px 10px 0;
+  background-color: #79d279;
+  border: none;
+  cursor: pointer;
 }

@@ -47,6 +47,8 @@ ol, ul {
 	list-style: none;
 }
 input:focus {outline:none;}
+select:focus {outline:none;}
+button:focus {outline:none;}
 svg {
   height: 400px;
   width: 400px;
