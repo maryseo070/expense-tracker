@@ -21,7 +21,7 @@ const ExpensesPieChart = ({ expenses, categories }) => {
 
   function colorArr() {
     let colors = [];
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < 13; i++) {
       colors = colors.concat(generateColor());
     }
     return colors;
@@ -41,12 +41,13 @@ const ExpensesPieChart = ({ expenses, categories }) => {
     }
 
   function colorLegend() {
-    let cats = Object.values(categories);
+    let cats = Object.keys(categoryExpenses);
+    // debugger
     if (cats.length > 0) {
       let colores;
       return cats.map( (cat, i) => {
         return (
-          <div key={i} style={{color: `${cols[i]}`}}>{cat.name}</div>
+          <div key={i} style={{color: `${cols[i]}`}}>{cat}</div>
         );
       });
     }
