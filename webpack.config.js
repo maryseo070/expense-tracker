@@ -25,7 +25,7 @@ module.exports = {
   entry: './frontend/entry.jsx',
   output: {
     path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
-    filename: 'wpk.js'
+    filename: 'bundle.js'
   },
   resolve: {
    extensions: ['.js', '.jsx']
