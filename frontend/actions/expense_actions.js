@@ -3,7 +3,13 @@ import * as ExpenseAPiUtil from '../util/expense_api_util';
 export const RECEIVE_EXPENSES = "RECEIVE_EXPENSES";
 export const RECEIVE_EXPENSE = "RECEIVE_EXPENSE";
 export const RECEIVE_CATEGORIES = "RECEIVE_CATEGORIES";
+export const DELETE_EXPENSES = "DELETE_EXPENSES";
 
+export const deleteExpenses = () => {
+  return{
+    type: DELETE_EXPENSES
+  };
+};
 export const receiveExpense = expense => {
   return {
     type: RECEIVE_EXPENSE,

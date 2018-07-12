@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchExpenses,
           createExpense,
-          fetchCategories } from '../../actions/expense_actions';
+          fetchCategories,
+          deleteExpenses } from '../../actions/expense_actions';
 import { logout } from '../../actions/session_actions';
 
 const msp = state => {
@@ -19,7 +20,8 @@ const mdp = dispatch => {
     fetchExpenses: () => dispatch(fetchExpenses()),
     fetchCategories: () => dispatch(fetchCategories()),
     createExpense: (expense) => dispatch(createExpense(expense)),
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    deleteExpenses: () => dispatch(deleteExpenses())
   };
 };
 

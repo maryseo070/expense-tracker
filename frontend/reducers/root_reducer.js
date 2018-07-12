@@ -5,7 +5,8 @@ import { RECEIVE_CURRENT_USER,
       CLEAR_ERRORS } from '../actions/session_actions';
 import { RECEIVE_CATEGORIES,
           RECEIVE_EXPENSE,
-          RECEIVE_EXPENSES } from '../actions/expense_actions';
+          RECEIVE_EXPENSES,
+          DELETE_EXPENSES } from '../actions/expense_actions';
 
 const expensesReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -16,6 +17,8 @@ const expensesReducer = (state = {}, action) => {
       return merge({}, state, action.expense);
     case RECEIVE_EXPENSES:
       return merge({}, state, action.expenses);
+    case DELETE_EXPENSES:
+      return {}
     default:
       return state;
   }

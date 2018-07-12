@@ -58,7 +58,9 @@ class AddExpenseButton extends Component {
 
   handleSubmit() {
     this.props.createExpense(this.state.form).then(
-      () => this.closeModal());
+      () => this.closeModal()).then(
+        () => this.props.fetchExpenses()
+      );
   }
 
   updateCategory() {

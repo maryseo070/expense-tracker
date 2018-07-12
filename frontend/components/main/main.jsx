@@ -9,7 +9,8 @@ class Main extends Component {
   constructor(props){
     super(props);
     this.state = {
-      filter: 0
+      filter: 0,
+      currentUser: this.props.currentUser
     };
     this.handleFilter = this.handleFilter.bind(this);
     this.logout = this.logout.bind(this);
@@ -19,6 +20,10 @@ class Main extends Component {
     this.props.fetchCategories();
   }
 
+  componentWillUnmount() {
+    this.props.deleteExpenses();
+  }
+
   handleFilter() {
     return (e) => {
       this.setState({filter: e.target.value});
@@ -26,21 +31,24 @@ class Main extends Component {
   }
   logout() {
     return (e) => {
-      this.props.logout().then( () => console.log("loggedout"));
+      e.preventDefault();
+      this.props.logout().then( () => this.props.history.push('/') );
     };
   }
   render() {
     let filteredExpenses =
       selectExpenses(this.props.expenses, this.state.filter);
-      
+
     let categories = this.props.categories;
     return(
       <section className="expense-index">
         <h1 className="index-h1">Expense Tracker</h1>
+        <div>Welcome {this.props.currentUser.username}!</div>
         <button className="logout-button" onClick={this.logout()}>Log Out</button>
 
         <div className="button-container">
           <AddExpenseButton
+            fetchExpenses={this.props.fetchExpenses}
             categories={this.props.categories}
             createExpense={this.props.createExpense}
             currentUser={this.props.currentUser}
