@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import ExpenseIndex from './expense_index';
-import AddExpenseButton from './add_expense_button';
-import { selectExpenses } from '../../reducers/selectors.js';
-import ExpensesPieChart from './pie_chart';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import ExpenseIndex from "./expense_index";
+import AddExpenseButton from "./add_expense_button";
+import { selectExpenses } from "../../reducers/selectors.js";
+import ExpensesPieChart from "./pie_chart";
 
 class Main extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       filter: 0,
@@ -25,26 +25,31 @@ class Main extends Component {
   }
 
   handleFilter() {
-    return (e) => {
-      this.setState({filter: e.target.value});
+    return e => {
+      this.setState({ filter: e.target.value });
     };
   }
   logout() {
-    return (e) => {
+    return e => {
       e.preventDefault();
-      this.props.logout().then( () => this.props.history.push('/') );
+      this.props.logout().then(() => this.props.history.push("/"));
     };
   }
+
   render() {
-    let filteredExpenses =
-      selectExpenses(this.props.expenses, this.state.filter);
+    let filteredExpenses = selectExpenses(
+      this.props.expenses,
+      this.state.filter
+    );
 
     let categories = this.props.categories;
-    return(
+    return (
       <section className="expense-index">
         <h1 className="index-h1">Expense Tracker</h1>
         <div>Welcome {this.props.currentUser.username}!</div>
-        <button className="logout-button" onClick={this.logout()}>Log Out</button>
+        <button className="logout-button" onClick={this.logout()}>
+          Log Out
+        </button>
 
         <div className="button-container">
           <AddExpenseButton
@@ -52,30 +57,33 @@ class Main extends Component {
             categories={this.props.categories}
             createExpense={this.props.createExpense}
             currentUser={this.props.currentUser}
-            expenses={this.props.expenses}/>
+            expenses={this.props.expenses}
+          />
 
-          <div>Filter Expenses by Category:
+          <div>
+            Filter Expenses by Category:
             <select className="expense-dropdown" onChange={this.handleFilter()}>
               <option value="0">All</option>
-              {
-                Object.values(this.props.categories).map( (c, i) => {
-                  return(
-                    <option key={i} value={c.id}>{c.name}</option>
-                  );
-                })
-              }
+              {Object.values(this.props.categories).map((c, i) => {
+                return (
+                  <option key={i} value={c.id}>
+                    {c.name}
+                  </option>
+                );
+              })}
             </select>
           </div>
         </div>
         <div className="index-piechart">
           <ExpenseIndex
             expenses={filteredExpenses}
-            currentUser={this.props.currentUser}/>
+            currentUser={this.props.currentUser}
+          />
           <ExpensesPieChart
             expenses={this.props.expenses}
-            categories={this.props.categories}/>
+            categories={this.props.categories}
+          />
         </div>
-
       </section>
     );
   }

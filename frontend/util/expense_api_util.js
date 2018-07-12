@@ -7,8 +7,8 @@ export const fetchExpenses = () => {
 
 export const createExpense = expense => {
   return $.ajax({
-    method:"POST",
-    url: '/api/expenses',
+    method: "POST",
+    url: "/api/expenses",
     dataType: "json",
     data: { expense }
   });
@@ -17,6 +17,6 @@ export const createExpense = expense => {
 export const fetchCategories = () => {
   return $.ajax({
     method: "GET",
-    url: '/api/categories'
+    url: "/api/categories"
   });
 };

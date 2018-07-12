@@ -1,7 +1,7 @@
-import { SessionFormContainer } from '../session/login_form_container';
-import { SignUpFormContainer } from '../session/signup_form_container';
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { SessionFormContainer } from "../session/login_form_container";
+import { SignUpFormContainer } from "../session/signup_form_container";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class SessionPage extends Component {
   constructor(props) {
@@ -9,18 +9,17 @@ class SessionPage extends Component {
     this.renderErrors = this.renderErrors.bind(this);
   }
 
-
   renderErrors() {
-      return(
-        <ul className="session-errors">
-          {this.props.errors.map((error, i) => (
-            <li className="rendered-errors" key={`error-${i}`}>
-              {error}
-            </li>
-          ))}
-        </ul>
-      );
-    }
+    return (
+      <ul className="session-errors">
+        {this.props.errors.map((error, i) => (
+          <li className="rendered-errors" key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
 
   render() {
     return (
@@ -37,25 +36,25 @@ class SessionPage extends Component {
           {this.renderErrors()}
         </section>
         <div className="session-photo-container">
-          <img className="session-photo"
-            src={window.session_photo}/>
+          <img className="session-photo" src={window.session_photo} />
           <h1 className="session-welcome">Welcome to Expense Tracker</h1>
         </div>
-          <section className="icon-holder">
-            <div className="icon-box">
-              <img src={window.icon1} className="session-icon"/>
-              <div className="icon-text">Track Your Expenses</div>
+        <section className="icon-holder">
+          <div className="icon-box">
+            <img src={window.icon1} className="session-icon" />
+            <div className="icon-text">Track Your Expenses</div>
+          </div>
+          <div className="icon-box">
+            <img src={window.icon2} className="session-icon" />
+            <div className="icon-text">Filter Expenses via Category</div>
+          </div>
+          <div className="icon-box">
+            <img src={window.icon3} className="session-icon" />
+            <div className="icon-text">
+              Visualize Your Spending Distribution
             </div>
-            <div className="icon-box">
-              <img src={window.icon2} className="session-icon"/>
-              <div className="icon-text">Filter Expenses via Category</div>
-            </div>
-            <div className="icon-box">
-              <img src={window.icon3} className="session-icon"/>
-              <div className="icon-text">Visualize Your Spending Distribution</div>
-            </div>
-          </section>
-
+          </div>
+        </section>
       </div>
     );
   }

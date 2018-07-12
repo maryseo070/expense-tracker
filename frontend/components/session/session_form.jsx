@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class SessionForm extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state= {
+    this.state = {
       username: "",
       password: ""
     };
@@ -11,21 +11,22 @@ class SessionForm extends Component {
   }
 
   handleSubmit() {
-    return(e) => {
+    return e => {
       e.preventDefault();
       const user = Object.assign({}, this.state);
-      this.props.processForm(user).then(
-        (u) => this.props.history.push('/expenses'));
+      this.props
+        .processForm(user)
+        .then(u => this.props.history.push("/expenses"));
     };
   }
 
-  updateField(field){
-    return (e) => {
-      this.setState({[field]: e.target.value});
+  updateField(field) {
+    return e => {
+      this.setState({ [field]: e.target.value });
     };
   }
 
-  render () {
+  render() {
     return (
       <div>
         <form className="session-form" onSubmit={this.handleSubmit()}>
@@ -34,25 +35,24 @@ class SessionForm extends Component {
             type="text"
             value={this.state.username}
             placeholder="Username"
-            onChange={this.updateField("username")}>
-          </input>
+            onChange={this.updateField("username")}
+          />
           <input
             className="input-text"
             type="password"
             value={this.state.password}
             placeholder="Password"
-            onChange={this.updateField("password")}>
-          </input>
+            onChange={this.updateField("password")}
+          />
           <input
             className="session-button"
             type="submit"
-            value={this.props.formType}>
-          </input>
+            value={this.props.formType}
+          />
         </form>
       </div>
     );
   }
 }
-
 
 export default SessionForm;

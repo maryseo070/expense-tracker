@@ -1,16 +1,20 @@
-import { combineReducers } from 'redux';
-import { merge } from 'lodash';
-import { RECEIVE_CURRENT_USER,
-      RECEIVE_SESSION_ERRORS,
-      CLEAR_ERRORS } from '../actions/session_actions';
-import { RECEIVE_CATEGORIES,
-          RECEIVE_EXPENSE,
-          RECEIVE_EXPENSES,
-          DELETE_EXPENSES } from '../actions/expense_actions';
+import { combineReducers } from "redux";
+import { merge } from "lodash";
+import {
+  RECEIVE_CURRENT_USER,
+  RECEIVE_SESSION_ERRORS,
+  CLEAR_ERRORS
+} from "../actions/session_actions";
+import {
+  RECEIVE_CATEGORIES,
+  RECEIVE_EXPENSE,
+  RECEIVE_EXPENSES,
+  DELETE_EXPENSES
+} from "../actions/expense_actions";
 
 const expensesReducer = (state = {}, action) => {
   Object.freeze(state);
-  switch(action.type) {
+  switch (action.type) {
     case RECEIVE_CATEGORIES:
       return merge({}, state, action.categories);
     case RECEIVE_EXPENSE:
@@ -18,15 +22,15 @@ const expensesReducer = (state = {}, action) => {
     case RECEIVE_EXPENSES:
       return merge({}, state, action.expenses);
     case DELETE_EXPENSES:
-      return {}
+      return {};
     default:
       return state;
   }
 };
 
-const sessionsReducer = (state = {currentUser: null }, action) => {
+const sessionsReducer = (state = { currentUser: null }, action) => {
   Object.freeze(state);
-  switch(action.type){
+  switch (action.type) {
     case RECEIVE_CURRENT_USER:
       return { currentUser: action.user };
     default:
@@ -37,7 +41,7 @@ const sessionsReducer = (state = {currentUser: null }, action) => {
 const sessionErrorsReducer = (state = [], action) => {
   const defaultErrors = [];
   Object.freeze(state);
-  switch(action.type) {
+  switch (action.type) {
     case RECEIVE_CURRENT_USER:
       return [];
     case RECEIVE_SESSION_ERRORS:

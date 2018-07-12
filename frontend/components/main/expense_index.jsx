@@ -1,15 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-const ExpenseIndex = ({expenses, currentUser}) => {
-
-
+const ExpenseIndex = ({ expenses, currentUser }) => {
   let exes = Object.values(expenses);
   //sort by date
-  exes = exes.sort(function(a,b){
+  exes = exes.sort(function(a, b) {
     return new Date(b.date) - new Date(a.date);
   });
-  exes = exes.map( (ex, i) => {
+  exes = exes.map((ex, i) => {
     return (
       <ul className="expense-item" key={i}>
         <li className="expense-date">Date: {ex.date}</li>
