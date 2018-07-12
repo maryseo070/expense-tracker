@@ -42,7 +42,6 @@ const ExpensesPieChart = ({ expenses, categories }) => {
 
   function colorLegend() {
     let cats = Object.keys(categoryExpenses);
-    // debugger
     if (cats.length > 0) {
       let colores;
       return cats.map( (cat, i) => {

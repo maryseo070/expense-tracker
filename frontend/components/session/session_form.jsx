@@ -26,7 +26,6 @@ class SessionForm extends Component {
   }
 
   render () {
-    // debugger
     return (
       <div>
         <form className="session-form" onSubmit={this.handleSubmit()}>
