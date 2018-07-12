@@ -16,12 +16,5 @@
 /node_modules
 /yarn-error.log
 
+
 .byebug_history
-
-config.js
-
-# Ignore application configuration
-/config/application.yml
-
-wpk.js
-wpk.js.map
