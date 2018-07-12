@@ -10,3 +10,4 @@ Live link: https://expense-tracker1.herokuapp.com/
 - To use the app, you can create a new profile by signing up with a username and password. However, if you'd like to see a profile with 4 expenses already seeded, you can use the username: "tester", password: "starwars" (on the seeds.rb file as user1) to log in.
 - Technologies used: Ruby on Rails and PostgreSQL backend, ReactJS and Redux frontend with a react-simple-pie-chart. Deployed on Heroku
   ![](app/assets/images/readme2.png)
+- Local Setup Instructions: clone this repo, navigate into the project directory, run `npm run start` in one tab of your command line to start webpack watch and `rails server` in another to run the rails server. Open up your browser and visit localhost:3000.
