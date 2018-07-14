@@ -276,10 +276,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var App = function App() {
   return _react2.default.createElement(
-    'div',
+    "div",
     null,
-    _react2.default.createElement(_route_util.AuthRoute, { exact: true, path: '/', component: _session_page_container2.default }),
-    _react2.default.createElement(_route_util.ProtectedRoute, { exact: true, path: '/expenses', component: _main_container2.default })
+    _react2.default.createElement(_route_util.AuthRoute, { exact: true, path: "/", component: _session_page_container2.default }),
+    _react2.default.createElement(_route_util.ProtectedRoute, { exact: true, path: "/expenses", component: _main_container2.default })
   );
 };
 // import ExpenseIndexContainer from './expense_index/expense_index_container';
@@ -321,28 +321,28 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var customStyles = {
   overlay: {
-    backgroundColor: 'rgba(0,0,0,0.7)',
-    position: 'fixed',
+    backgroundColor: "rgba(0,0,0,0.7)",
+    position: "fixed",
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
-    border: 'none'
+    border: "none"
   },
   content: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    overflow: 'auto',
-    backgroundColor: 'white'
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    overflow: "auto",
+    backgroundColor: "white"
   }
 };
 
-_reactModal2.default.setAppElement(document.getElementById('root'));
+_reactModal2.default.setAppElement(document.getElementById("root"));
 
 var AddExpenseButton = function (_Component) {
   _inherits(AddExpenseButton, _Component);
@@ -373,17 +373,17 @@ var AddExpenseButton = function (_Component) {
   }
 
   _createClass(AddExpenseButton, [{
-    key: 'openModal',
+    key: "openModal",
     value: function openModal(url, idx) {
       this.setState({ modalIsOpen: true, imgUrl: url, imgIdx: idx });
     }
   }, {
-    key: 'closeModal',
+    key: "closeModal",
     value: function closeModal() {
       this.setState({ modalIsOpen: false });
     }
   }, {
-    key: 'handleSubmit',
+    key: "handleSubmit",
     value: function handleSubmit() {
       var _this2 = this;
 
@@ -394,7 +394,7 @@ var AddExpenseButton = function (_Component) {
       });
     }
   }, {
-    key: 'updateCategory',
+    key: "updateCategory",
     value: function updateCategory() {
       var _this3 = this;
 
@@ -406,7 +406,7 @@ var AddExpenseButton = function (_Component) {
       };
     }
   }, {
-    key: 'updateField',
+    key: "updateField",
     value: function updateField(field) {
       var _this4 = this;
 
@@ -418,30 +418,34 @@ var AddExpenseButton = function (_Component) {
       };
     }
   }, {
-    key: 'render',
+    key: "render",
     value: function render() {
       var _this5 = this;
 
       var categories = Object.values(this.props.categories);
       categories = categories.map(function (c, i) {
         return _react2.default.createElement(
-          'option',
+          "option",
           { value: c.id, key: i },
           c.name
         );
       });
       return _react2.default.createElement(
-        'div',
-        { className: 'modal-all' },
+        "div",
+        { className: "modal-all" },
         _react2.default.createElement(
-          'div',
-          { className: 'show-buttons' },
+          "div",
+          { className: "show-buttons" },
           _react2.default.createElement(
-            'button',
-            { onClick: function onClick() {
+            "button",
+            {
+              onClick: function onClick() {
                 return _this5.openModal();
-              }, className: 'add-expense-button' },
-            ' Add Expense'
+              },
+              className: "add-expense-button"
+            },
+            " ",
+            "Add Expense"
           )
         ),
         _react2.default.createElement(
@@ -455,43 +459,46 @@ var AddExpenseButton = function (_Component) {
             },
             onRequestClose: this.closeModal,
             style: customStyles,
-            contentLabel: 'Example Modal',
-            className: 'login-modal-all'
+            contentLabel: "Example Modal",
+            className: "login-modal-all"
           },
           _react2.default.createElement(
-            'form',
-            { onSubmit: this.handleSubmit, className: 'modal-inner-session-form' },
-            _react2.default.createElement('input', {
-              className: 'modal-text',
-              type: 'text',
-              placeholder: 'Amount $',
+            "form",
+            {
+              onSubmit: this.handleSubmit,
+              className: "modal-inner-session-form"
+            },
+            _react2.default.createElement("input", {
+              className: "modal-text",
+              type: "text",
+              placeholder: "Amount $",
               value: this.state.amount,
-              onChange: this.updateField("amount") }),
-            _react2.default.createElement('input', {
-              className: 'modal-text',
-              type: 'textarea',
-              placeholder: 'Description',
+              onChange: this.updateField("amount")
+            }),
+            _react2.default.createElement("input", {
+              className: "modal-text",
+              type: "textarea",
+              placeholder: "Description",
               value: this.state.description,
               onChange: this.updateField("description")
             }),
-            _react2.default.createElement('input', {
-              className: 'modal-date',
-              type: 'date',
+            _react2.default.createElement("input", {
+              className: "modal-date",
+              type: "date",
               value: this.state.description,
-              onChange: this.updateField("date") }),
+              onChange: this.updateField("date")
+            }),
             _react2.default.createElement(
-              'select',
-              {
-                className: 'modal-dropdown',
-                onChange: this.updateCategory() },
+              "select",
+              { className: "modal-dropdown", onChange: this.updateCategory() },
               categories
             ),
-            _react2.default.createElement('input', { className: 'modal-submit-button', type: 'submit' })
+            _react2.default.createElement("input", { className: "modal-submit-button", type: "submit" })
           ),
           _react2.default.createElement(
-            'button',
-            { className: 'close-button', onClick: this.closeModal },
-            'Close'
+            "button",
+            { className: "close-button", onClick: this.closeModal },
+            "Close"
           )
         )
       );
@@ -533,7 +540,6 @@ var ExpenseIndex = function ExpenseIndex(_ref) {
   var expenses = _ref.expenses,
       currentUser = _ref.currentUser;
 
-
   var exes = Object.values(expenses);
   //sort by date
   exes = exes.sort(function (a, b) {
@@ -541,30 +547,30 @@ var ExpenseIndex = function ExpenseIndex(_ref) {
   });
   exes = exes.map(function (ex, i) {
     return _react2.default.createElement(
-      'ul',
-      { className: 'expense-item', key: i },
+      "ul",
+      { className: "expense-item", key: i },
       _react2.default.createElement(
-        'li',
-        { className: 'expense-date' },
-        'Date: ',
+        "li",
+        { className: "expense-date" },
+        "Date: ",
         ex.date
       ),
       _react2.default.createElement(
-        'div',
-        { className: 'expense-category' },
-        'Category: ',
+        "div",
+        { className: "expense-category" },
+        "Category: ",
         ex.category
       ),
       _react2.default.createElement(
-        'li',
-        { className: 'expense-description' },
-        'Description: ',
+        "li",
+        { className: "expense-description" },
+        "Description: ",
         ex.description
       ),
       _react2.default.createElement(
-        'li',
-        { className: 'expense-amount' },
-        'Amount: $',
+        "li",
+        { className: "expense-amount" },
+        "Amount: $",
         ex.amount.toFixed(2)
       )
     );
@@ -577,16 +583,16 @@ var ExpenseIndex = function ExpenseIndex(_ref) {
     }, 0);
   }
   return _react2.default.createElement(
-    'div',
+    "div",
     null,
     _react2.default.createElement(
-      'div',
+      "div",
       null,
-      'Total Expenses: ',
+      "Total Expenses: ",
       expenseTotal()
     ),
     _react2.default.createElement(
-      'div',
+      "div",
       null,
       exes
     )
@@ -669,18 +675,18 @@ var Main = function (_Component) {
   }
 
   _createClass(Main, [{
-    key: 'componentDidMount',
+    key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchExpenses();
       this.props.fetchCategories();
     }
   }, {
-    key: 'componentWillUnmount',
+    key: "componentWillUnmount",
     value: function componentWillUnmount() {
       this.props.deleteExpenses();
     }
   }, {
-    key: 'handleFilter',
+    key: "handleFilter",
     value: function handleFilter() {
       var _this2 = this;
 
@@ -689,67 +695,68 @@ var Main = function (_Component) {
       };
     }
   }, {
-    key: 'logout',
+    key: "logout",
     value: function logout() {
       var _this3 = this;
 
       return function (e) {
         e.preventDefault();
         _this3.props.logout().then(function () {
-          return _this3.props.history.push('/');
+          return _this3.props.history.push("/");
         });
       };
     }
   }, {
-    key: 'render',
+    key: "render",
     value: function render() {
       var filteredExpenses = (0, _selectors.selectExpenses)(this.props.expenses, this.state.filter);
 
       var categories = this.props.categories;
       return _react2.default.createElement(
-        'section',
-        { className: 'expense-index' },
+        "section",
+        { className: "expense-index" },
         _react2.default.createElement(
-          'h1',
-          { className: 'index-h1' },
-          'Expense Tracker'
+          "h1",
+          { className: "index-h1" },
+          "Expense Tracker"
         ),
         _react2.default.createElement(
-          'div',
+          "div",
           null,
-          'Welcome ',
+          "Welcome ",
           this.props.currentUser.username,
-          '!'
+          "!"
         ),
         _react2.default.createElement(
-          'button',
-          { className: 'logout-button', onClick: this.logout() },
-          'Log Out'
+          "button",
+          { className: "logout-button", onClick: this.logout() },
+          "Log Out"
         ),
         _react2.default.createElement(
-          'div',
-          { className: 'button-container' },
+          "div",
+          { className: "button-container" },
           _react2.default.createElement(_add_expense_button2.default, {
             fetchExpenses: this.props.fetchExpenses,
             categories: this.props.categories,
             createExpense: this.props.createExpense,
             currentUser: this.props.currentUser,
-            expenses: this.props.expenses }),
+            expenses: this.props.expenses
+          }),
           _react2.default.createElement(
-            'div',
+            "div",
             null,
-            'Filter Expenses by Category:',
+            "Filter Expenses by Category:",
             _react2.default.createElement(
-              'select',
-              { className: 'expense-dropdown', onChange: this.handleFilter() },
+              "select",
+              { className: "expense-dropdown", onChange: this.handleFilter() },
               _react2.default.createElement(
-                'option',
-                { value: '0' },
-                'All'
+                "option",
+                { value: "0" },
+                "All"
               ),
               Object.values(this.props.categories).map(function (c, i) {
                 return _react2.default.createElement(
-                  'option',
+                  "option",
                   { key: i, value: c.id },
                   c.name
                 );
@@ -758,14 +765,16 @@ var Main = function (_Component) {
           )
         ),
         _react2.default.createElement(
-          'div',
-          { className: 'index-piechart' },
+          "div",
+          { className: "index-piechart" },
           _react2.default.createElement(_expense_index2.default, {
             expenses: filteredExpenses,
-            currentUser: this.props.currentUser }),
+            currentUser: this.props.currentUser
+          }),
           _react2.default.createElement(_pie_chart2.default, {
             expenses: this.props.expenses,
-            categories: this.props.categories })
+            categories: this.props.categories
+          })
         )
       );
     }
@@ -876,7 +885,6 @@ var ExpensesPieChart = function ExpensesPieChart(_ref) {
   var expenses = _ref.expenses,
       categories = _ref.categories;
 
-
   var categoryExpenses = {};
   Object.values(expenses).map(function (e) {
     if (categoryExpenses[e.category]) {
@@ -887,7 +895,7 @@ var ExpensesPieChart = function ExpensesPieChart(_ref) {
   });
 
   function generateColor() {
-    return 'rgb(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ')';
+    return "rgb(" + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + ")";
   }
 
   function colorArr() {
@@ -917,25 +925,22 @@ var ExpensesPieChart = function ExpensesPieChart(_ref) {
       var colores = void 0;
       return cats.map(function (cat, i) {
         return _react2.default.createElement(
-          'div',
-          { key: i, style: { color: '' + cols[i] } },
+          "div",
+          { key: i, style: { color: "" + cols[i] } },
           cat
         );
       });
     }
   }
   return _react2.default.createElement(
-    'div',
+    "div",
     null,
     _react2.default.createElement(
-      'div',
+      "div",
       null,
       colorLegend()
     ),
-    _react2.default.createElement(_reactSimplePieChart2.default, {
-      className: 'pie-chart',
-      slices: slice
-    })
+    _react2.default.createElement(_reactSimplePieChart2.default, { className: "pie-chart", slices: slice })
   );
 };
 
@@ -1097,7 +1102,7 @@ var SessionForm = function (_Component) {
         e.preventDefault();
         var user = Object.assign({}, _this2.state);
         _this2.props.processForm(user).then(function (u) {
-          return _this2.props.history.push('/expenses');
+          return _this2.props.history.push("/expenses");
         });
       };
     }
@@ -1124,17 +1129,20 @@ var SessionForm = function (_Component) {
             type: "text",
             value: this.state.username,
             placeholder: "Username",
-            onChange: this.updateField("username") }),
+            onChange: this.updateField("username")
+          }),
           _react2.default.createElement("input", {
             className: "input-text",
             type: "password",
             value: this.state.password,
             placeholder: "Password",
-            onChange: this.updateField("password") }),
+            onChange: this.updateField("password")
+          }),
           _react2.default.createElement("input", {
             className: "session-button",
             type: "submit",
-            value: this.props.formType })
+            value: this.props.formType
+          })
         )
       );
     }
@@ -1196,85 +1204,84 @@ var SessionPage = function (_Component) {
   }
 
   _createClass(SessionPage, [{
-    key: 'renderErrors',
+    key: "renderErrors",
     value: function renderErrors() {
       return _react2.default.createElement(
-        'ul',
-        { className: 'session-errors' },
+        "ul",
+        { className: "session-errors" },
         this.props.errors.map(function (error, i) {
           return _react2.default.createElement(
-            'li',
-            { className: 'rendered-errors', key: 'error-' + i },
+            "li",
+            { className: "rendered-errors", key: "error-" + i },
             error
           );
         })
       );
     }
   }, {
-    key: 'render',
+    key: "render",
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        { className: 'session-page' },
+        "div",
+        { className: "session-page" },
         _react2.default.createElement(
-          'section',
-          { className: 'session-form-container' },
+          "section",
+          { className: "session-form-container" },
           _react2.default.createElement(
-            'div',
-            { className: 'session-item' },
-            'Log In!',
+            "div",
+            { className: "session-item" },
+            "Log In!",
             _react2.default.createElement(_login_form_container.SessionFormContainer, null)
           ),
           _react2.default.createElement(
-            'div',
-            { className: 'session-item' },
-            'Sign Up (password must be 6 characters long)',
+            "div",
+            { className: "session-item" },
+            "Sign Up (password must be 6 characters long)",
             _react2.default.createElement(_signup_form_container.SignUpFormContainer, null)
           ),
           this.renderErrors()
         ),
         _react2.default.createElement(
-          'div',
-          { className: 'session-photo-container' },
-          _react2.default.createElement('img', { className: 'session-photo',
-            src: window.session_photo }),
+          "div",
+          { className: "session-photo-container" },
+          _react2.default.createElement("img", { className: "session-photo", src: window.session_photo }),
           _react2.default.createElement(
-            'h1',
-            { className: 'session-welcome' },
-            'Welcome to Expense Tracker'
+            "h1",
+            { className: "session-welcome" },
+            "Welcome to Expense Tracker"
           )
         ),
         _react2.default.createElement(
-          'section',
-          { className: 'icon-holder' },
+          "section",
+          { className: "icon-holder" },
           _react2.default.createElement(
-            'div',
-            { className: 'icon-box' },
-            _react2.default.createElement('img', { src: window.icon1, className: 'session-icon' }),
+            "div",
+            { className: "icon-box" },
+            _react2.default.createElement("img", { src: window.icon1, className: "session-icon" }),
             _react2.default.createElement(
-              'div',
-              { className: 'icon-text' },
-              'Track Your Expenses'
+              "div",
+              { className: "icon-text" },
+              "Track Your Expenses"
             )
           ),
           _react2.default.createElement(
-            'div',
-            { className: 'icon-box' },
-            _react2.default.createElement('img', { src: window.icon2, className: 'session-icon' }),
+            "div",
+            { className: "icon-box" },
+            _react2.default.createElement("img", { src: window.icon2, className: "session-icon" }),
             _react2.default.createElement(
-              'div',
-              { className: 'icon-text' },
-              'Filter Expenses via Category'
+              "div",
+              { className: "icon-text" },
+              "Filter Expenses via Category"
             )
           ),
           _react2.default.createElement(
-            'div',
-            { className: 'icon-box' },
-            _react2.default.createElement('img', { src: window.icon3, className: 'session-icon' }),
+            "div",
+            { className: "icon-box" },
+            _react2.default.createElement("img", { src: window.icon3, className: "session-icon" }),
             _react2.default.createElement(
-              'div',
-              { className: 'icon-text' },
-              'Visualize Your Spending Distribution'
+              "div",
+              { className: "icon-text" },
+              "Visualize Your Spending Distribution"
             )
           )
         )
@@ -1614,7 +1621,7 @@ var fetchExpenses = exports.fetchExpenses = function fetchExpenses() {
 var createExpense = exports.createExpense = function createExpense(expense) {
   return $.ajax({
     method: "POST",
-    url: '/api/expenses',
+    url: "/api/expenses",
     dataType: "json",
     data: { expense: expense }
   });
@@ -1623,7 +1630,7 @@ var createExpense = exports.createExpense = function createExpense(expense) {
 var fetchCategories = exports.fetchCategories = function fetchCategories() {
   return $.ajax({
     method: "GET",
-    url: '/api/categories'
+    url: "/api/categories"
   });
 };
 
@@ -1661,9 +1668,13 @@ var Auth = function Auth(_ref) {
       path = _ref.path,
       loggedIn = _ref.loggedIn,
       exact = _ref.exact;
-  return _react2.default.createElement(_reactRouter.Route, { path: path, exact: exact, render: function render(props) {
-      return !loggedIn ? _react2.default.createElement(Component, props) : _react2.default.createElement(_reactRouter.Redirect, { to: '/' });
-    } });
+  return _react2.default.createElement(_reactRouter.Route, {
+    path: path,
+    exact: exact,
+    render: function render(props) {
+      return !loggedIn ? _react2.default.createElement(Component, props) : _react2.default.createElement(_reactRouter.Redirect, { to: "/" });
+    }
+  });
 };
 
 var Protected = function Protected(_ref2) {
@@ -1671,9 +1682,13 @@ var Protected = function Protected(_ref2) {
       path = _ref2.path,
       loggedIn = _ref2.loggedIn,
       exact = _ref2.exact;
-  return _react2.default.createElement(_reactRouter.Route, { path: path, exact: exact, render: function render(props) {
-      return loggedIn ? _react2.default.createElement(Component, props) : _react2.default.createElement(_reactRouter.Redirect, { to: '/' });
-    } });
+  return _react2.default.createElement(_reactRouter.Route, {
+    path: path,
+    exact: exact,
+    render: function render(props) {
+      return loggedIn ? _react2.default.createElement(Component, props) : _react2.default.createElement(_reactRouter.Redirect, { to: "/" });
+    }
+  });
 };
 var mapStateToProps = function mapStateToProps(state) {
   return { loggedIn: Boolean(state.session.currentUser) };
@@ -1700,7 +1715,7 @@ Object.defineProperty(exports, "__esModule", {
 var login = exports.login = function login(user) {
   return $.ajax({
     method: "POST",
-    url: '/api/session',
+    url: "/api/session",
     data: { user: user }
   });
 };
